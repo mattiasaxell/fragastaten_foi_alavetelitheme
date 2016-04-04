@@ -11,8 +11,8 @@ $color_white: #ffffff;
 
 $color_neutral_light: $color_sand;
 $color_neutral_dark: $color_black;
-$color_primary: $color_violet;
-$color_secondary: $color_orange;
+$color_primary: $color_white;
+$color_secondary: $color_yellow;
 
 $body-bg: $color_neutral_light;
 
@@ -51,7 +51,7 @@ $action-color: $color_orange;
   }
   transition: background-color 0.5s ease-out;
   &:hover{
-    background-color: darken($color_primary, 15%);
+    background-color: darken($color_primary, 40%); //changed 15%
     color: $color_white;
   }
 
@@ -60,7 +60,7 @@ $action-color: $color_orange;
 /* Selected menu item */
 %selected-menu-item {
   font-weight: bold;
-  color: $color_primary;
+  color: $color_blue;//changed from $color_primary
   background-color: $color_neutral_light;
   &:hover{
       background-color: $color_neutral_light;
@@ -173,14 +173,14 @@ input.use-datepicker[type=text] {
 
 @mixin button-secondary($args...) {
   @include button-base($args...);
-  background-color: desaturate(darken($color_sand, 10%), 5%);
+  background-color: desaturate(darken($color_yellow, 10%), 5%);
   color: $color_black;
   font-weight: normal;
   &:hover,
   &:active,
   &:focus {
     color: $color_black;
-    background-color: desaturate(darken($color_sand, 20%), 5%);
+    background-color: desaturate(darken($color_yellow, 20%), 5%);
   }
 }
 
@@ -222,7 +222,7 @@ a.link_button_green_large {
 }
 
 #topnav {
-  background-color: darken($color_primary, 10%);
+  background-color: darken($color_blue, 10%);
 }
 
 .site-title__logo {
@@ -270,17 +270,17 @@ a.link_button_green_large {
   }
 
   #navigation_search_button{
-    background-color: $color_white;
+    background-color: darken($color_white, 5%); //color pure white
     border: none;
     transition: all 0.3s ease-out;
-    color: $color_primary;
+    color: $color_neutral_dark; //changed from color white
     border-radius: 0;
     font-size: inherit;
   }
 }
 
 .greeting {
-  color: $body-bg;
+  color: $color_neutral_dark;
 }
 /* Notices, errors */
 
@@ -321,19 +321,23 @@ a.link_button_green_large {
 
 /* Logged and local options act like submenus */
 #logged_in_bar{
+  @include respond-min($main_menu-mobile_menu_cutoff) {
+    top: 0;
+  }
+
   a {
     @extend %menu-item;
     background-color: transparent;
     font-weight: normal;
-    color: $color_white;
+    color: $color_black; //changed from white
     &:hover,
     &:active,
     &:focus {
       background-color: transparent;
+      color: $color_blue; //added
     }
   }
   #logged_in_links {
-    top: 2em;
     a {
       font-weight: normal;
     }
@@ -342,9 +346,9 @@ a.link_button_green_large {
 
 /* LANGUAGE SWITCHER */
 #user_locale_switcher {
-  background-color: $color_primary;
+  background-color: lighten($color_black, 20%); //changed from color_primary
   @include respond-min($main_menu-mobile_menu_cutoff) {
-    background-color: transparent;
+    background-color: $color_black; //changed from transparent
   }
 }
 
@@ -364,7 +368,7 @@ a.link_button_green_large {
     @include respond-min($main_menu-mobile_menu_cutoff) {
       margin-top: 0;
       border: 1px solid desaturate(lighten($color_primary, 5%), 5%);
-      border-radius: 3px;
+      //border-radius: 3px; commented
       color: $link-color;
       padding: 0;
     }
@@ -374,7 +378,7 @@ a.link_button_green_large {
 .locale-list-trigger .current-locale {
   position: relative;
   z-index: 999;
-  border-radius: 3px;
+  //border-radius: 3px; commented
   color: $color_white;
   @include respond-min($main_menu-mobile_menu_cutoff) {
     padding: 0.66em 2em 0.66em 0.66em;
@@ -421,7 +425,7 @@ a.link_button_green_large {
     z-index: 1000;
     border-radius: 3px;
     font-size: 1em;
-    width: 100%;
+    min-width: 100%;
   }
 
 }
@@ -773,7 +777,7 @@ dt {
 .steps__step-number {
   height: 3.5em;
   width: 3.5em;
-  background-color: $color_primary;
+  background-color: $color_yellow;
   box-shadow: 0 1px 2px transparentize($color_black, 0.75);
   padding: 1em;
   border-radius: 100%;
@@ -828,7 +832,8 @@ dt {
 
 .homepage-hero {
   background-color: $color_neutral_dark;
-  background-image: image-url('homepage-background-small.jpg');
+  //background-image: image-url('homepage-background-small.jpg'); 
+  background-image: image-url('stockholm_bg.jpg'); 
   background-repeat: no-repeat;
   background-position: center top;
   background-size: cover;
@@ -837,7 +842,12 @@ dt {
   position: relative;
   @include respond-min($main_menu-mobile_menu_cutoff) {
     padding: 5em 0 8em;
-    background-image: image-url('homepage-background.jpg');
+    background-image: image-url('stockholm_bg.jpg');
+  }
+  //added merxhan
+  .hero__intro {
+    padding-bottom: 14px;
+    background-color: rgba(0,0,0,0.3);
   }
 
   a {
