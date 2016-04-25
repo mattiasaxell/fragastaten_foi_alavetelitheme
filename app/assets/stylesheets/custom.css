@@ -3,3 +3,7 @@
    since it is mentioned in the application.css manifest.  Themes
    should prepend their directories to the asset path so this will
    be overriden by any custom.css in the theme. */
+
+#banner_inner {
+	background-color: #005b99;
+}
