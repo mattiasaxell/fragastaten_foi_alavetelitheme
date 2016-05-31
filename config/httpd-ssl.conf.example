@@ -1,6 +1,6 @@
 # VirtualHost for HTTPS requests
 <VirtualHost *:443>
-  ServerName www.example.com
+  ServerName www.fragastaten.com
 
   ErrorLog /var/log/apache2/alaveteli_error.log
   CustomLog /var/log/apache2/alaveteli_access.log combined
